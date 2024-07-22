@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     resetButton.addEventListener("click", ()=>{
         if (confirm("Are you sure you want to quit this Pomodoro session?")){
             clearInterval(interval);
-            window.location.href = 'https://pomodoro-pulse-52dd686332b5.herokuapp.com/pomodoro/timer';
+            window.location.href = 'https://www.pomodoro-pulse.com/pomodoro/timer';
         }
     });
 
@@ -76,7 +76,7 @@ function runSession(indexPar, sessionsPar){
         }, 4000);
         setTimeout(() => {
             // call 'addSession' URL
-            fetch("https://pomodoro-pulse-52dd686332b5.herokuapp.com/pomodoro/addSession", {
+            fetch("https://www.pomodoro-pulse.com/pomodoro/addSession", {
                 method: 'POST',
                 credentials: 'include',  // ensures cookies, such as session cookies, are included in the request. Important for authenticated sessions.
                 headers: {
@@ -87,7 +87,7 @@ function runSession(indexPar, sessionsPar){
             .then(response => response.json()) // parses the JSON response returned from 'fetch' and converts it into a JavaScript object.
             .then(data => { // the JavaScript object derived from 'response.json()'
                 if (data.status === "success") {
-                    window.location.href = "https://pomodoro-pulse-52dd686332b5.herokuapp.com/pomodoro/timer";
+                    window.location.href = "https://www.pomodoro-pulse.com/pomodoro/timer";
                 } else {
                     alert('We encountered an issue while recording your new session.\nPlease reach out to us via "Help & Feedback", and we will resolve it as soon as possible.');
                     console.error(data.message);
@@ -96,7 +96,7 @@ function runSession(indexPar, sessionsPar){
             .catch(error => {
                 if (confirm('We encountered an issue while recording your new session.\nPlease reach out to us via "Help & Feedback", and we will resolve it as soon as possible.')){
                     console.error('There was a problem with the fetch operation:', error);
-                    window.location.href = 'https://pomodoro-pulse-52dd686332b5.herokuapp.com/pomodoro/timer';
+                    window.location.href = 'https://www.pomodoro-pulse.com/pomodoro/timer';
                 }
 
             });
