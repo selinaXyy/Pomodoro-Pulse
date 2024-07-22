@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Help & Feedback{% endblock %}
+{% block styles %}
+    {{ super() }} <!-- This includes the base template's styles first -->
+    <style>
+        .helpSuccessPage{
+            height: 70vh;
+            align-content: center !important;
+        }
+
+        #check{
+            margin-bottom: -35px;
+            z-index: 10;
+            border-radius: 50%;
+            fill: #FF8C00;
+            background-color: white;
+        }
+
+        .thankNote{
+            width: 65%;
+            height: 60%;
+            padding: 2rem;
+            margin-left: auto;
+            margin-right: auto;
+            align-content: end;
+            background-color: white;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .thankNote h1{
+            padding-bottom: 2rem;
+        }
+
+        #ok{
+            font-size: 25px;
+            width: 100%;
+            height: 3rem;
+            color: white;
+            background-color: #FF8C00;
+            border-radius: 5px;
+            align-content: center;
+            margin-top: 1.5rem;
+        }
+
+        #ok:hover{
+            background-color: #ffad49; 
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    {{ super() }}
+    <div class="helpSuccessPage container-fluid main-content">
+        <svg id="check" xmlns="http://www.w3.org/2000/svg" width="70" height="70" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+        </svg>
+        <div class="thankNote">
+            <h1>Thank You!</h1>
+            <h5>Your submission has been successfully recorded. We will review it and get back to you as soon as possible.</h5>
+            <div id="ok">OK</div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,331 @@
+.profilePage{
+    min-height: calc(100vh - 4rem);
+}
+
+.userInfo{
+    width: 80%;
+    height: 40vh;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+    display: grid;
+    grid-row: 1fr;
+    grid-column: 1fr 1fr 1fr;
+    gap: auto;
+    overflow-y: auto;
+}
+
+.name {
+    text-align: center;
+    align-content: end;
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.name h1{
+    color: #333;
+    font-weight: bold;
+    text-wrap: break-word; /* This will break long words to avoid overflow */
+    text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ProfilePic{
+    text-align: center;
+    align-content: center;
+    grid-area: 1 / 2 / 2 / 3;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 2.5px solid white;
+    background-color: rgba(255, 255, 255, 30%);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.totalStudyTime{
+    text-align: center;
+    align-content: end;
+    grid-area: 1 / 3 / 2 / 4;
+}
+
+.fire{
+    text-align: center !important;
+    align-content: center !important;
+}
+
+.fire iframe{
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.fire .iframe-overlay {
+    position: absolute;
+    left: 30rem;
+    bottom: 30rem;
+    width: 100%;
+    height: 100%;
+    background: transparent; /* Keep this transparent to see the iframe content */
+    z-index: 10; /* Higher z-index to ensure it covers the iframe */
+}
+
+#totalTime{
+    font-weight: bold;
+    text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-wrap: break-word; /* This will break long words to avoid overflow */
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.userData{
+    width: 80%;
+    height: 50vh;
+    background-color: rgba(255, 255, 255, 70%);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
+}
+
+.data{
+    display: block;
+    height: calc(100% - 3rem);
+    text-align: center;
+    align-content: center;
+    border-radius: 15px;
+    border: 1px solid #d3d3d3;
+    margin-bottom: 0.5rem;
+}
+
+.gradient-background {
+    background: linear-gradient(300deg, #FC4100, #ff4c68, #ef8172);
+    background-size: 180% 180%;
+    animation: gradient-animation 3.5s ease infinite;
+  }
+  
+@keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+.data .dataText{
+    font-family: "Jersey 25", sans-serif;
+    font-weight: 400;
+    font-size: 50px;
+    text-wrap: break-word;
+    color: #fff;
+    display: block;
+    text-align: center;
+    align-content: center;
+}
+
+.data span{
+    font-family: "Jersey 25", sans-serif;
+    font-size: 55px;
+    color: #ffee56;
+    text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logout{
+    display: block;
+    text-align: center;
+    align-content: end;
+}
+
+#logoutBtn{
+    width: 7rem;
+    height: 2.5rem;
+    margin-left: auto;
+    background-color: #fd553f;
+    align-content: center;
+    border-radius: 30px;
+}
+
+#logoutBtn:hover{
+    background-color: #fe7765;
+}
+
+#logoutBtn a{
+    color: white;
+    text-decoration: none;
+}
+
+@media (max-width: 768px){
+    .profilePage{
+        min-height: calc(100vh - 2.5rem);
+    }
+    
+    .userInfo{
+        width: 95%;
+        max-height: 13rem;
+        margin-top: 2rem;
+        margin-bottom: -1.5rem;
+        margin-left: auto;
+        margin-right: auto;
+        align-content: center;
+        display: grid;
+        grid-row: 1fr 1fr 1fr;
+        grid-column: 1fr;
+        gap: 0;
+        overflow-y: auto;
+    }
+    
+    .name {
+        text-align: center;
+        align-content: center;
+        grid-area: 2 / 1 / 3 / 2;
+        margin-top: 0.5rem;
+    }
+    
+    .name h1{
+        color: #333;
+        font-weight: bold;
+        font-size: 1.3rem;
+        text-wrap: break-word; /* This will break long words to avoid overflow */
+        text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .ProfilePic{
+        text-align: center;
+        align-content: center;
+        grid-area: 1 / 1 / 2 / 2;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 30%);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .ProfilePic svg{
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    
+    .totalStudyTime{
+        text-align: center;
+        align-content: center;
+        grid-area: 3 / 1 / 4 / 2;
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+    }
+    
+    .fire{
+        text-align: center !important;
+        align-content: center !important;
+    }
+    
+    .fire iframe{
+        position: relative;
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .fire .iframe-overlay {
+        position: absolute;
+        left: 7rem;
+        bottom: 35rem;
+        width: 100%;
+        height: 100%;
+        background: transparent; /* Keep this transparent to see the iframe content */
+        z-index: 10; /* Higher z-index to ensure it covers the iframe */
+    }
+    
+    #totalTime{
+        display: none;
+    }
+    
+    .userData{
+        width: 95%;
+        max-height: 40vh;
+        background-color: rgba(255, 255, 255, 70%);
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 15px;
+        margin-top: 0;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 1rem;
+    }
+    
+    .data{
+        display: block;
+        padding: 0 1rem;
+        max-height: calc(100% - 2.8rem);
+        text-align: center;
+        align-content: center;
+        border-radius: 15px;
+        border: 1px solid #d3d3d3;
+        margin-bottom: 0.5rem;
+    }
+    
+    .gradient-background {
+        background: linear-gradient(300deg, #FC4100, #ff4c68, #ef8172);
+        background-size: 180% 180%;
+        animation: gradient-animation 10s ease infinite;
+      }
+      
+    @keyframes gradient-animation {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+      
+    .data .dataText{
+        font-family: "Jersey 25", sans-serif;
+        font-weight: 400;
+        line-height: 2.5rem;
+        font-size: 28px;
+        text-wrap: break-word;
+        color: #fff;
+        display: block;
+        text-align: center;
+        align-content: center;
+    }
+    
+    .data span{
+        font-family: "Jersey 25", sans-serif;
+        font-size: 28px;
+        color: #ffee56;
+        text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .logout{
+        display: block;
+        text-align: center;
+        align-content: end;
+    }
+    
+    #logoutBtn{
+        width: 4.5rem;
+        height: 2.3rem;
+        font-size: 0.8rem;
+        margin-left: auto;
+        background-color: #fd553f;
+        align-content: center;
+        border-radius: 30px;
+    }
+    
+    #logoutBtn:hover{
+        background-color: #fe7765;
+    }
+    
+    #logoutBtn a{
+        color: white;
+        text-decoration: none;
+    }
+}

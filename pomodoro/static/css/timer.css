@@ -1,0 +1,362 @@
+/* preload */
+body::before {
+    content: url('../img/background-green.png') url('../img/background-blue.png') url('../img/background-purple.png');
+    display: none;  /* Ensures the pseudo-element does not affect layout */
+}
+
+.timerPage{
+    min-height: 100vh;
+    text-align: center;
+    overflow-y: auto;
+}
+
+.timer{
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+    width: 100%;
+    height: 70%;
+    align-content: center;
+}
+
+#userNote{
+    z-index: 50;
+    width: 25rem;
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
+    margin-left: auto;
+    margin-top: 12px;
+    margin-bottom: -175px;
+}
+
+/* working mode */
+body.work{
+    min-height: 100vh;
+    min-width: 100vw;
+    background-size: cover;
+    background-position: center;
+    background-image: url("../img/background-green.png") !important;
+    background-color: transparent;
+    transition: all 0.5s ease;
+}
+
+.timerOuter.work, .timerInner.work{
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+    height: 470px;
+    width: 470px;
+    border: 7px solid rgb(255, 255, 255, 0.1);
+    border-radius: 50%;
+    background-color: #388E3C;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: all 0.5s ease;
+}
+
+.timerInner.work{
+    height: 410px;
+    width: 410px;
+    font-size: 80px;
+    color: white;
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-color: rgba(56, 142, 60, 0.7);
+    background-color: rgba(200, 230, 201, 0.5);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05); /* Light inner shadow */
+    transition: all 0.5s ease;
+}
+
+/* short break mode */
+body.shortBreak{
+    min-height: 100vh;
+    min-width: 100vw;
+    background-size: cover;
+    background-position: center;
+    background-image: url("../img/background-blue.png") !important;
+    background-color: transparent;
+    transition: all 0.5s ease;
+}
+
+.timerOuter.shortBreak, .timerInner.shortBreak{
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+    height: 470px;
+    width: 470px;
+    border: 7px solid rgb(255, 255, 255, 0.1);
+    border-radius: 50%;
+    background-color: #1976D2;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: all 0.5s ease;
+}
+
+.timerInner.shortBreak{
+    height: 410px;
+    width: 410px;
+    font-size: 80px;
+    color: white;
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-color: rgb(25, 118, 210, 0.7);
+    background-color: rgb(187, 222, 251, 0.5);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05); 
+    transition: all 0.5s ease;
+}
+
+/* long break mode */
+body.longBreak{
+    min-height: 100vh;
+    min-width: 100vw;
+    background-size: cover;
+    background-position: center;
+    background-image: url("../img/background-purple.png") !important;
+    background-color: transparent;
+    transition: all 0.5s ease;
+}
+
+.timerOuter.longBreak, .timerInner.longBreak{
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+    height: 470px;
+    width: 470px;
+    border: 7px solid rgb(255, 255, 255, 0.1);
+    border-radius: 50%;
+    background-color: rgb(140, 35, 185);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: all 0.5s ease;
+}
+
+.timerInner.longBreak{
+    height: 410px;
+    width: 410px;
+    font-size: 80px;
+    color: white;
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-color: rgba(140, 35, 185, 0.7);
+    background-color: rgba(225, 190, 231, 0.5);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.5s ease;
+}
+
+.timerBtn{
+    width: 20rem;
+    height: 5rem;
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+    border: 3px solid aliceblue;
+    color: aliceblue;
+    background-color: rgba(255, 255, 255, 20%);
+    border-radius: 50px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+    transition: background-color 0.3s, box-shadow 0.3s;
+    transition: all 0.5s ease;
+}
+
+.timerBtn:hover {
+    background-color: rgba(255, 255, 255, 50%);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btnContent{
+    width: 100%;
+    align-content: center;
+    margin-bottom: -0.3rem;
+}
+
+#btnText{
+    font-size: 28px;
+}
+
+.timerBtn svg{
+    width: 50px;
+    height: 50px;
+    fill: aliceblue;
+    margin-top: -0.3rem;
+}
+
+.resetBtnContainer{
+    text-align: center;
+}
+
+#resetBtn{
+    display: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+    margin-top: 2.5rem;
+}
+
+#resetBtn svg{
+    margin-top: -0.3rem;
+}
+
+#resetBtn:hover{
+    color: rgb(237, 43, 43);
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px){
+    .timer{
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    #userNote{
+        z-index: 50;
+        max-height: auto;
+        margin-bottom: 0;
+        width: auto;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 12px;
+    }
+
+    #userNote h4{
+        font-size: 1rem;
+    }
+
+    #userNote p{
+        font-size: 0.7rem;
+    }
+    
+    /* working mode */
+    body.work{
+        min-height: 100vh;
+        min-width: 100vw;
+        background-size: cover;
+        background-position: center;
+        background-image: url("../img/background-green.png") !important;
+        background-color: transparent;
+        transition: all 0.5s ease;
+    }
+
+    .timerOuter.work, .timerInner.work{
+        margin-left: auto;
+        margin-right: auto;
+        align-content: center;
+        height: 200px;
+        width: 200px;
+        border: 3px solid rgb(255, 255, 255, 0.1);
+        border-radius: 50%;
+        background-color: #388E3C;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        transition: all 0.5s ease;
+    }
+    
+    .timerInner.work{
+        height: 170px;
+        width: 170px;
+        font-size: 40px;
+        color: white;
+        text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        border-color: rgba(56, 142, 60, 0.7);
+        background-color: rgba(200, 230, 201, 0.5);
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05); /* Light inner shadow */
+        transition: all 0.5s ease;
+    }
+    
+    /* short break mode */
+    body.shortBreak{
+        min-height: 100vh;
+        min-width: 100vw;
+        background-size: cover;
+        background-position: center;
+        background-image: url("../img/background-blue.png") !important;
+        background-color: transparent;
+        transition: all 0.5s ease;
+    }
+
+    .timerOuter.shortBreak, .timerInner.shortBreak{
+        margin-left: auto;
+        margin-right: auto;
+        align-content: center;
+        height: 200px;
+        width: 200px;
+        border: 3px solid rgb(255, 255, 255, 0.1);
+        border-radius: 50%;
+        background-color: #1976D2;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+        transition: all 0.5s ease;
+    }
+    
+    .timerInner.shortBreak{
+        height: 170px;
+        width: 170px;
+        font-size: 40px;
+        color: white;
+        text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        border-color: rgb(25, 118, 210, 0.7);
+        background-color: rgb(187, 222, 251, 0.5);
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05); 
+        transition: all 0.5s ease;
+    }
+    
+    /* long break mode */
+    body.longBreak{
+        min-height: 100vh;
+        min-width: 100vw;
+        background-size: cover;
+        background-position: center;
+        background-image: url("../img/background-purple.png") !important;
+        background-color: transparent;
+        transition: all 0.5s ease;
+    }
+
+    .timerOuter.longBreak, .timerInner.longBreak{
+        margin-left: auto;
+        margin-right: auto;
+        align-content: center;
+        height: 200px;
+        width: 200px;
+        border: 3px solid rgb(255, 255, 255, 0.1);
+        border-radius: 50%;
+        background-color: rgb(140, 35, 185);
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+        transition: all 0.5s ease;
+    }
+    
+    .timerInner.longBreak{
+        height: 170px;
+        width: 170px;
+        font-size: 40px;
+        color: white;
+        text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        border-color: rgba(140, 35, 185, 0.7);
+        background-color: rgba(225, 190, 231, 0.5);
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05); 
+        transition: all 0.5s ease;
+    }
+    
+    .timerBtn{
+        width: 10rem;
+        height: 3rem;
+        border: 1.5px solid aliceblue;
+        color: aliceblue;
+    }
+    
+    .btnContent{
+        width: 100%;
+        align-content: center;
+        margin-bottom: -0.2rem;
+    }
+    
+    .timerBtn svg{
+        width: 30px;
+        height: 30px;
+        margin-top: -0.2rem;
+    }
+
+    #resetBtn svg{
+        width: 1rem;
+        height: 1rem;
+        margin-top: 0;
+    }
+
+    #resetBtn{
+        font-size: 0.8rem;
+    }
+}

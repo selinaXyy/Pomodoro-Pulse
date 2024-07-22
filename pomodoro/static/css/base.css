@@ -1,0 +1,279 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+html, body{
+    background-color: #EFEEEB;
+    color: #63605c;
+}
+
+.userPic{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    margin-bottom: 1rem;
+    border: 1px solid #e0d2cb;
+    background-color: rgba(222, 169, 169, 0.3);
+    align-content: center;
+}
+
+#tomato{
+    width: 35px;
+    height: 35px;
+}
+
+.sideBar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 80px;
+    background-color: #F8F9FA;
+    padding: 0.4rem 0.8rem;
+    transition: all 0.5s ease;
+    z-index: 10;
+}
+
+#btnToggle{
+    width: 30px;
+    height: 30px;
+}
+
+.sideBar ~ .main-content{
+    text-align: center;
+    margin-left: 80px;
+    width: calc(100% - 80px);
+}
+
+.sideBar.active ~ .main-content{
+    margin-left: 280px;
+    width: calc(100% - 280px);
+}
+
+.sideBar.active{
+    width: 280px;
+}
+
+.sideBar #btnToggle{
+    position: absolute;
+    top: 0.7rem;
+    left: 50%;
+    line-height: 50px;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+
+.sideBar.active #btnToggle{
+    left: 90%;
+}
+
+.sideBar .top .logo{
+    margin-top: 1.5rem;
+    margin-bottom: 0.3rem;
+    display: flex;
+    height: 80px;
+    width: 100%;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.sideBar .top .logo img{
+    width: 100%;
+    height: auto;
+}
+
+.sideBar.active .top .logo{
+    opacity: 1;
+    transition-delay: 0.15s;
+}
+
+.user{
+    text-align: center;
+}
+
+.bold{
+    font-weight: 600;
+    margin: 0 !important;
+}
+
+.sideBar p{
+    opacity: 0;
+    margin-left: 1rem;
+}
+
+.sideBar.active .userPic{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sideBar.active p{
+    opacity: 1;
+}
+
+.sideBar ul{
+    padding-left: 0 !important;
+}
+
+.sideBar ul li{
+    position: relative;
+    align-content: center;
+    list-style-type: none;
+    height: 40px;
+    width: 90%;
+    margin: 0.8rem;
+    margin-left: 0;
+    line-height: 50px;
+}
+
+.sideBar ul li a{
+    color: #63605c;
+    height: 40px;
+    display: flex;
+    padding-left: 0.5rem;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 0.8rem;
+}
+
+.sideBar ul svg{
+    min-width: 30px;
+    height: 30px;
+    border-radius: 12px;
+    line-height: 50px;
+}
+
+.sideBar ul li a:hover{
+    background-color: #FFAF45;
+    color: white;
+}
+
+.sideBar .navItem{
+    opacity: 0;
+}
+
+.sideBar.active ul svg{
+    margin-left: 0;
+    margin-right: 1rem;
+}
+
+.sideBar.active .navItem{
+    white-space: nowrap;  /* Prevents text from wrapping */
+    overflow: hidden;  /* Hides any overflow content */
+    text-overflow: ellipsis;  /* Adds '...' to indicate overflow */
+    opacity: 1;
+}
+
+.sideBar ul li .toolTip{
+    position: absolute;
+    left: 125px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0.5rem 0.8rem rgba(0, 0, 0, 0.2);
+    background-color: #F8F9FA;
+    border-radius: 0.6rem;
+    padding: 0.4rem 1.2rem;
+    line-height: 1.8rem;
+    z-index: 20;
+    opacity: 0;
+}
+
+.sideBar ul li:hover .toolTip{
+    opacity: 1;
+}
+
+.sideBar.active ul li .toolTip{
+    display: none;
+}
+
+@media (max-width: 768px){
+    .userPic{
+        width: 35px;
+        height: 35px;
+        margin-bottom: 0.5rem;
+    }
+    
+    #tomato{
+        width: 25px;
+        height: 25px;
+    }
+    
+    .sideBar{
+        width: 60px;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    #btnToggle{
+        width: 25px;
+        height: 25px;
+    }
+    
+    .sideBar ~ .main-content{
+        margin-left: 60px;
+        width: calc(100% - 60px);
+    }
+    
+    .sideBar.active ~ .main-content{
+        margin-left: 170px;
+        width: calc(100% - 170px);
+    }
+    
+    .sideBar.active{
+        width: 170px;
+    }
+    
+    .sideBar #btnToggle{
+        line-height: 50px;
+    }
+    
+    .sideBar .top .logo{
+        height: 60px;
+    }
+    
+    .bold{
+        font-weight: 600;
+        font-size: 1rem;
+    }
+    
+    .sideBar p{
+        opacity: 0;
+        margin-left: 1rem;
+    }
+    
+    .sideBar ul li{
+        margin: 0.6rem 0;
+    }
+    
+    .sideBar ul li a{
+        height: 40px;
+        padding-left: 0;
+    }
+
+    .sideBar.active ul li a{
+        padding-right: 0.2rem;
+    }
+    
+    .sideBar ul svg{
+        min-width: 23px;
+        height: 23px;
+        margin-left: 0.25rem;
+    }
+    
+    .sideBar.active ul svg{
+        margin-left: 0;
+        margin-right: 0.5rem;
+    }
+
+    .sideBar ul li .toolTip{
+        padding: 0.2rem 0.8rem;
+        left: 105px;
+        font-size: 0.8rem;
+    }
+
+    .sideBar ul li .navItem{
+        font-size: 0.8rem;
+    }
+}

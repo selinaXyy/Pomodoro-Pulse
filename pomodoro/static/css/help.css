@@ -1,0 +1,99 @@
+.helpPage{
+    text-align: left !important;
+    padding-top: 3rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    overflow-y: auto;
+}
+
+.form-label{
+    font-weight: bold;
+    color: #72675b;
+}
+
+::placeholder{
+    color: rgb(141, 136, 128) !important;
+}
+
+#email, #subject, #message{
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#message{
+    height: 10rem;
+    resize: none;
+}
+
+#submit{
+    height: 3.2rem;
+    width: 15rem;
+    border-radius: 30px;
+    background-color: #FF8C00; 
+    color: white; 
+    border: none;
+    margin-top: 0.5rem;
+    margin-left: calc(50% - 7.5rem) !important;
+}
+
+#submit:hover{
+    background-color: #ffad49; 
+}
+
+@media (max-width: 768px){
+    .helpPage{
+        text-align: left !important;
+        padding-top: 2rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        overflow-y: auto;
+    }
+    
+    .form-label{
+        font-size: 0.8rem;
+        font-weight: bold;
+        color: #72675b;
+    }
+    
+    ::placeholder{
+        font-size: 0.8rem;
+        color: rgb(141, 136, 128) !important;
+    }
+    
+    #email, #subject, #message{
+        font-size: 0.8rem;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    #message{
+        height: 10rem;
+        resize: none;
+    }
+    
+    #submit{
+        font-size: 0.8rem;
+        height: 2.5rem;
+        width: 7rem;
+        border-radius: 30px;
+        background-color: #FF8C00; 
+        color: white; 
+        border: none;
+        margin-top: 0.5rem;
+        margin-left: calc(50% - 3.5rem) !important;
+    }
+    
+    #submit:hover{
+        background-color: #ffad49; 
+    }
+
+    footer{
+        width: 100%;
+        text-align: center;
+        position: fixed; 
+        bottom: 0;
+        background: #f8f9fa; 
+        border-top: 1px solid #d3d3d3;
+        font-size: 0.8rem;
+        padding: 4px;  
+        z-index: 20;  
+    }
+}

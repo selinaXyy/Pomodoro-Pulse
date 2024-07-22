@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% from 'bootstrap5/form.html' import render_form %}
+{% block title %}Help & Feedback{% endblock %}
+{% block styles %}
+    {{ super() }} <!-- This includes the base template's styles first -->
+    <link href="{{ url_for('pomodoro.static', filename='css/help.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    {{ super() }} <!-- Include default content from base -->
+
+    <div class="helpPage container-fluid main-content">
+        {{ render_form(form, novalidate=True) }} <!-- make sure the validation works on different platforms -->
+    </div>
+{% endblock %}
+{% include "footer.html" %}

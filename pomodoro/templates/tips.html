@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% block title %}Focus Tips{% endblock %}
+{% block styles %}
+    {{ super() }} <!-- This includes the base template's styles first -->
+    <link href="{{ url_for('pomodoro.static', filename='css/tips.css') }}" rel="stylesheet" >
+{% endblock %}
+
+{% block content %}
+    {{ super() }} <!-- Include default content from base -->
+    <div class="tipsPage container-fluid main-content">
+        <input type="hidden" id="csrf_token" name="csrf_token" value="{{ csrf_token() }}">
+        <div id="addTip">
+            <a href="{{ url_for('pomodoro.addTip') }}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="55" height="55" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" stroke-width="2"/>
+                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+                </svg>
+            </a>
+        </div>
+        <div class="tips">
+            {% if user_tips and user_tips != [] %}
+                <div class="userTips">
+                {% for tip in user_tips %}
+                    <div class="tip">
+                        <h5 class="tipTitle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-journals" viewBox="0 0 16 16">
+                            <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2"/>
+                            <path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0"/>
+                            </svg>
+                            {{ tip.tip_title }}</h5>
+                        <p class="tipContent">
+                            {{ tip.tip_content }}
+                            <br />
+                            <a href="{{ url_for('pomodoro.deleteTip') }}" class="delete-btn" id="{{ tip.tip_id }}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#A9A9A9" class="bi bi-trash3" viewBox="0 0 16 16">
+                                    <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
+                                </svg>
+                            </a>
+                        </p>
+                    </div>
+                {% endfor %}
+                </div>
+            {% endif %}
+
+            <div class="AppTips">
+                <div class="tip">
+                    <h5 class="tipTitle">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-noise-reduction" viewBox="0 0 16 16">
+                            <path d="M13 5.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m-1 1a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m-1 1a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m-1 1a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m-1 1a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m-1 1a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m-1 1a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m-1 1a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m1 1a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m.5-.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1m1-1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1m1-1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1m1-1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1m1-1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1m1-1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1m1-1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1m-5 7a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1m1.5-1.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m1-1a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m1-1a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m1-1a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m1-1a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m-3 5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m.5-.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1m1-1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1m1-1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1"/>
+                            <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M1 8a7 7 0 0 1 12.83-3.875.5.5 0 1 0 .15.235q.197.322.359.667a.5.5 0 1 0 .359.932q.201.658.27 1.364a.5.5 0 1 0 .021.282 7 7 0 0 1-.091 1.592.5.5 0 1 0-.172.75 7 7 0 0 1-.418 1.091.5.5 0 0 0-.3.555 7 7 0 0 1-.296.454.5.5 0 0 0-.712.453c0 .111.036.214.098.297a7 7 0 0 1-.3.3.5.5 0 0 0-.75.614 7 7 0 0 1-.455.298.5.5 0 0 0-.555.3 7 7 0 0 1-1.092.417.5.5 0 1 0-.749.172 7 7 0 0 1-1.592.091.5.5 0 1 0-.282-.021 7 7 0 0 1-1.364-.27A.498.498 0 0 0 5.5 14a.5.5 0 0 0-.473.339 7 7 0 0 1-.668-.36A.5.5 0 0 0 5 13.5a.5.5 0 1 0-.875.33A7 7 0 0 1 1 8"/>
+                        </svg>
+                        Cover Noises</h5>
+                    <p class="tipContent">To improve focus, consider using white noise or soft background music to mask distractions. This can help you stay in a state of concentration by reducing external noises.</p>
+                </div>
+
+                <div class="tip">
+                    <h5 class="tipTitle">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bell-slash" viewBox="0 0 16 16">
+                            <path d="M5.164 14H15c-.299-.199-.557-.553-.78-1-.9-1.8-1.22-5.12-1.22-6q0-.396-.06-.776l-.938.938c.02.708.157 2.154.457 3.58.161.767.377 1.566.663 2.258H6.164zm5.581-9.91a4 4 0 0 0-1.948-1.01L8 2.917l-.797.161A4 4 0 0 0 4 7c0 .628-.134 2.197-.459 3.742q-.075.358-.166.718l-1.653 1.653q.03-.055.059-.113C2.679 11.2 3 7.88 3 7c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0c.942.19 1.788.645 2.457 1.284zM10 15a2 2 0 1 1-4 0zm-9.375.625a.53.53 0 0 0 .75.75l14.75-14.75a.53.53 0 0 0-.75-.75z"/>
+                        </svg>
+                        Remain Undisturbed</h5>
+                    <p class="tipContent">Avoid task switching and maintain a single focus. Set your phone to airplane mode or Do Not Disturb mode to minimize interruptions and maintain a steady workflow.</p>
+                </div>
+
+                <div class="tip">
+                    <h5 class="tipTitle">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                            <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/>
+                        </svg>
+                        Write Down Your Thoughts</h5>
+                    <p class="tipContent">If your mind tends to wander with various ideas, jot them down on paper or a digital note. This practice can clear your thoughts, allowing you to concentrate on the current task.</p>
+                </div>
+
+                <div class="tip">
+                    <h5 class="tipTitle">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-eye-slash" viewBox="0 0 16 16">
+                            <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z"/>
+                            <path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829"/>
+                            <path d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z"/>
+                        </svg>
+                        Isolate Visual Distractions</h5>
+                    <p class="tipContent">Keep your study or work area clean and free from clutter. Reducing visual distractions helps maintain focus by preventing your attention from straying to other objects or people.</p>
+                </div>
+
+                <div class="tip pomodoroTip">
+                    <h5 class="tipTitle">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-award" viewBox="0 0 16 16">
+                            <path d="M9.669.864 8 0 6.331.864l-1.858.282-.842 1.68-1.337 1.32L2.6 6l-.306 1.854 1.337 1.32.842 1.68 1.858.282L8 12l1.669-.864 1.858-.282.842-1.68 1.337-1.32L13.4 6l.306-1.854-1.337-1.32-.842-1.68zm1.196 1.193.684 1.365 1.086 1.072L12.387 6l.248 1.506-1.086 1.072-.684 1.365-1.51.229L8 10.874l-1.355-.702-1.51-.229-.684-1.365-1.086-1.072L3.614 6l-.25-1.506 1.087-1.072.684-1.365 1.51-.229L8 1.126l1.356.702z"/>
+                            <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1z"/>
+                        </svg>
+                        What is the Pomodoro Technique?</h5>
+                    <ul class="tipContent">
+                        <li><strong>Overview:</strong> The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s. It uses a timer to break work into intervals, traditionally 25 minutes in length, separated by short breaks.</li>
+                        <li><strong>Focus Sessions:</strong> Each work interval, known as a "Pomodoro", is a period during which you focus solely on your tasks. This uninterrupted time encourages concentration and reduces distractions.</li>
+                        <li><strong>Short Breaks:</strong> After each Pomodoro, you take a short break of about 5 minutes. These intervals help to relax the mind, boost creativity, and maintain consistent performance throughout longer tasks.</li>
+                        <li><strong>Long Breaks:</strong> After completing four Pomodoros, you take a longer break, typically 15-30 minutes. These longer breaks allow for recovery from mental fatigue and help to refresh your focus.</li>
+                        <li><strong>Task Organization:</strong>  Before starting, tasks should be planned out and prioritized. This preparation helps in managing workload effectively and completing tasks systematically.</li>
+                        <li><strong>Efficiency and Productivity:</strong> By splitting the workday into distinct segments, the technique aims to increase productivity, streamline processes, and make the task completion process more attainable and less daunting.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const deleteBtns = document.getElementsByClassName("delete-btn");
+            Array.from(deleteBtns).forEach(btn => {
+                btn.addEventListener("click", function(event) {
+                    const tipId = this.id;
+                    console.log("Attempting to delete tip with ID:", tipId);
+                    if (confirm("Are you sure you want to delete this tip?")) {
+                        event.preventDefault();
+                        console.log("Confirmed deletion for tip ID:", tipId);
+                        fetch("https://pomodoro-pulse-52dd686332b5.herokuapp.com/pomodoro/deleteTip", {
+                            method: "POST",
+                            credentials: "include",
+                            headers: {
+                                "X-CSRF-Token": document.getElementById("csrf_token").value,
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({ tipId: tipId })
+                        })
+                        .then(response => {
+                            if (response.ok) {
+                                console.log("Tip deleted successfully, reloading page.");
+                                location.reload();
+                            } else {
+                                response.json().then(data => console.error("Failed to delete tip:", data.message));
+                            }
+                        })
+                        .catch(error => console.error("Error during fetch:", error));
+                    }
+                });
+            });
+        });
+    </script>
+    
+{% endblock %}

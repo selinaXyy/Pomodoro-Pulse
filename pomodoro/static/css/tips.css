@@ -1,0 +1,233 @@
+.tipsPage{
+    min-height: 100vh;
+    text-align: left !important;
+    overflow-y: auto;
+}
+
+#addTip{
+    text-align: right;
+    padding-top: 3rem;
+    margin-right: 2rem;
+}
+
+#addTip a{
+    color: #a1a1a1;
+    text-decoration: none;
+    display: inline-block;
+    width: 55px;
+    height: 55px;
+}
+
+#addTip svg{
+    fill: #a1a1a1;
+    border-radius: 50%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#addTip svg:hover{
+    filter: brightness(120%);
+}
+
+.tips{
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3rem;
+    padding-bottom: 5rem;
+} 
+
+.tip {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+    text-align: left;
+    word-wrap: break-word; /* Ensures text wraps within the box */
+}
+
+.tip:nth-child(1){
+    margin-top: 0;
+}
+
+.userTips {
+    background-color: #cde7e8; 
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.userTips .tipTitle {
+    font-weight: bold;
+    color: #00687c;
+    border-bottom: 2px solid #004d56;
+    padding-bottom: 4px;
+    border-radius: 4px;
+}
+
+.AppTips {
+    background-color: #fae7cf; 
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.AppTips .tipTitle {
+    font-weight: bold;
+    color: #ff7b5b;
+    border-bottom: 2px solid #f76f68;
+    padding-bottom: 4px;
+    border-radius: 4px;
+}
+
+.tipContent {
+    color: #555555; 
+    line-height: 1.5; 
+}
+
+.tipContent a{
+    margin-top: 0.5rem;
+    margin-left: calc(100% - 22px);
+    text-decoration: none;
+}
+
+.tipContent svg:hover{
+    fill: red;
+}
+
+.pomodoroTip{
+    background-color: #FADAC8;
+}
+
+.pomodoroTip .tipTitle {
+    font-weight: bold;
+    color: #D35F53;
+    border-bottom: 2px solid #BF554A;
+    padding-bottom: 4px;
+    border-radius: 4px;
+}
+
+.pomodoroTip svg{
+    fill: #D35F53;
+}
+
+@media (max-width:768px){
+    .tipsPage{
+        min-height: 100vh;
+        text-align: left !important;
+        overflow-y: auto;
+    }
+    
+    #addTip{
+        text-align: right;
+        padding-top: 1.5rem;
+        margin-right: 1.25rem;
+    }
+    
+    #addTip a{
+        color: #a1a1a1;
+        text-decoration: none;
+        display: inline-block;
+        width: 2rem;
+        height: 2rem;
+    }
+    
+    #addTip svg{
+        fill: #a1a1a1;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    #addTip svg:hover{
+        filter: brightness(120%);
+    }
+    
+    .tips{
+        max-width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1.5rem;
+        padding-bottom: 2rem;
+    } 
+    
+    .tip {
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 16px;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+        text-align: left;
+        word-wrap: break-word; /* Ensures text wraps within the box */
+    }
+    
+    .tip:nth-child(1){
+        margin-top: 0;
+    }
+
+    .tips svg{
+        width: 1rem;
+        height: 1rem;
+    }
+    
+    .userTips {
+        background-color: #cde7e8; 
+        padding: 16px;
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+    }
+    
+    .userTips .tipTitle {
+        font-size: 1rem;
+        font-weight: bold;
+        color: #00687c;
+        border-bottom: 2px solid #004d56;
+        padding-bottom: 4px;
+        border-radius: 4px;
+    }
+    
+    .AppTips {
+        background-color: #fae7cf; 
+        padding: 16px;
+        border-radius: 8px;
+    }
+    
+    .AppTips .tipTitle {
+        font-size: 1rem;
+        font-weight: bold;
+        color: #ff7b5b;
+        border-bottom: 2px solid #f76f68;
+        padding-bottom: 4px;
+        border-radius: 4px;
+    }
+    
+    .tipContent {
+        font-size: 0.8rem;
+        color: #555555; 
+        line-height: 1.5; 
+    }
+    
+    .tipContent a{
+        margin-top: 0.5rem;
+        margin-left: calc(100% - 22px);
+        text-decoration: none;
+    }
+    
+    .tipContent svg:hover{
+        fill: red;
+    }
+    
+    .pomodoroTip{
+        background-color: #FADAC8;
+    }
+    
+    .pomodoroTip .tipTitle {
+        font-weight: bold;
+        color: #D35F53;
+        border-bottom: 2px solid #BF554A;
+        padding-bottom: 4px;
+        border-radius: 4px;
+    }
+    
+    .pomodoroTip svg{
+        fill: #D35F53;
+    }
+}

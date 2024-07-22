@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Timezone</title>
+</head>
+<body style="text-align: center;">
+    <form id="timezoneForm" action="/auth/setTimezone" method="post" style="display: none;">
+        <input type="hidden" name="timezone" id="timezoneInput">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    </form>
+
+    <h6>Setting up user timezone...</h6>
+
+    <script>
+        var timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        document.getElementById("timezoneInput").value = timezone;
+        document.getElementById("timezoneForm").submit();
+    </script>
+</body>
+</html>

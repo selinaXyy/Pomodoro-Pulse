@@ -1,0 +1,175 @@
+body, html{
+    background-color: #EFEEEB;
+    margin: 0;
+}
+
+.home{
+    margin-bottom: 5rem;
+}
+
+#logo{
+    margin-top: -3rem;
+    margin-bottom: -3rem;
+}
+
+.hero h1{
+    font-size: 40px !important;
+    color: #2c2b2a !important;
+    margin-top: -3rem !important;
+}
+
+.hero button{
+    margin-top: 2rem;
+    width: 15rem;
+    height: 3.5rem;
+    border-radius: 15px;
+    border: 2px solid rgb(22, 110, 232);
+}
+
+.about{
+    margin-bottom: 3rem;
+}
+
+.about h2, .featuresContainer h2{
+    color: #3f3d39;
+}
+
+.about p{
+    font-size: 21px;
+    font-weight: lighter;
+}
+
+.features h4{
+    color: #4a4845;
+    margin: 0;
+}
+
+.features p{
+    font-weight: lighter;
+    margin: 0 !important;
+}
+
+.features .col div{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+footer{
+    color: #63605c;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+}
+
+footer p{
+    margin-bottom: 0.25rem;
+}
+
+footer a{
+    color: #444444;
+}
+
+#privacyPolicyAndTermsOfService a{
+    color: black;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+footer a:hover{
+    color: rgb(109, 41, 146) !important;
+}
+
+@media (max-width: 992px){
+
+    .features .col{
+        padding: 12px !important;
+    }
+}
+
+@media (max-width: 768px){
+    
+    #logo{
+        width: 500px;
+    }
+
+    .features .col{
+        padding: 12px !important;
+    }
+}
+
+@media (max-width: 768px){
+
+    .home{
+        margin-bottom: 3rem;
+    }
+
+    .hero{
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+    
+    #logo{
+        margin: 0;
+        width: 230px;
+    }
+    
+    .hero h1{
+        font-size: 19px !important;
+        margin-top: -2rem !important;
+    }
+
+    .hero p{
+        font-size: 14px;
+    }
+    
+    .hero button{
+        margin-top: 0;
+        font-size: 14px;
+        width: auto;
+        height: 2.5rem;
+        border-radius: 15px;
+        border: 1.5px solid rgb(22, 110, 232);
+    }
+    
+    .about{
+        margin-top: -.3rem;
+        margin-bottom: 2rem;
+    }
+    
+    .about h2, .featuresContainer h2{
+        font-size: 18px;
+    }
+    
+    .about p{
+        font-size: 14px;
+        font-weight: lighter;
+    }
+
+    .features .col{
+        padding: 12px !important;
+    }
+
+    .features img{
+        height: 8rem;
+        width: 14rem;
+    }
+    
+    .features h4{
+        margin: 0;
+        font-size: 16px;
+    }
+    
+    .features p{
+        font-size: 13px;
+    }
+    
+    footer{
+        font-size: 13px;
+    }
+    
+    #privacyPolicyAndTermsOfService a{
+        margin-left: .5rem;
+        margin-right: .5rem;
+    }
+}
