@@ -4,6 +4,8 @@
 
 Welcome to **Pomodoro Pulse**—an app designed to enhance your productivity using the Pomodoro technique! 🚀 Experience focused work sessions with our intuitive timer, featuring sound cues, and boost your efficiency like never before.
 
+**Note:** This repo does not include the **Guest Login** feature.
+
 ## Key Features
 
 - **Effective Time Management:** Utilize our intuitive timer to structure your work into efficient bursts of activity followed by short, rejuvenating breaks. This method keeps you consistently energized and focused throughout the day.
